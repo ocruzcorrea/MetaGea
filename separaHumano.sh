@@ -31,23 +31,23 @@ cd $DIRin/$h
 # separar las lecturas humanas y no humanas con bowtie2
 # modo paired end para las lecturas pareadas no extendidas con flash
 bowtie2 -x $Ref \
--1 $DIRin/$h/out.notCombined.filtered_1P.fastq.gz \
--2 $DIRin/$h/out.notCombined.filtered_2P.fastq.gz \
+-1 $DIRin/$h/notCombined.filtered_1P.fastq.gz \
+-2 $DIRin/$h/notCombined.filtered_2P.fastq.gz \
 --un-conc-gz $DIRout/$h/notCombined_%P_nothuman.fastq.gz \
 --al-conc-gz $DIRout/$h/notCombined_%P_human.fastq.gz \
 > $DIRout/$h/notCombined_paired_human.sam
 
 # modo single read para las lecturas no pareadas no extendidas con flash
 bowtie2 -x $Ref \
--1 $DIRin/$h/out.notCombined.filtered_1U.fastq.gz \
--2 $DIRin/$h/out.notCombined.filtered_2U.fastq.gz \
+-1 $DIRin/$h/notCombined.filtered_1U.fastq.gz \
+-2 $DIRin/$h/notCombined.filtered_2U.fastq.gz \
 --un-conc-gz $DIRout/$h/notCombined_%U_nothuman.fastq.gz \
 --al-conc-gz $DIRout/$h/notCombined_%U_human.fastq.gz \
 > $DIRout/$h/notCombined_unpaired_human.sam
 
 # modo single read para las lecturas extendidas con flash
 bowtie2 -x $Ref \
--U $DIRin/$h/out.extendedFrags.fastq.gz \
+-U $DIRin/$h/extendedFrags.filtered.fastq.gz \
 --un-gz $DIRout/$h/extendedFrags_nothuman.fastq.gz \
 --al-gz $DIRout/$h/extendedFrags_human.fastq.gz \
 > $DIRout/$h/extendedFrags_human.sam
