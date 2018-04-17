@@ -39,8 +39,8 @@ bowtie2 -x $Ref \
 
 # modo single read para las lecturas no pareadas no extendidas con flash
 bowtie2 -x $Ref \
--1 $DIRin/$h/notCombined.filtered_1U.fastq.gz \
--2 $DIRin/$h/notCombined.filtered_2U.fastq.gz \
+-U $DIRin/$h/notCombined.filtered_1U.fastq.gz \
+-U $DIRin/$h/notCombined.filtered_2U.fastq.gz \
 --un-conc-gz $DIRout/$h/notCombined_%U_nothuman.fastq.gz \
 --al-conc-gz $DIRout/$h/notCombined_%U_human.fastq.gz \
 > $DIRout/$h/notCombined_unpaired_human.sam
